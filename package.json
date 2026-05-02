@@ -1,0 +1,29 @@
+{
+  "name": "fast-infotech-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:client": "vite",
+    "dev:server": "sh -c 'php -S 0.0.0.0:${PORT:-8787} api/router.php'",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "luxon": "^3.7.2",
+    "motion": "^12.38.0",
+    "mysql2": "^3.22.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.2.4",
+    "vite": "^8.0.9"
+  }
+}
