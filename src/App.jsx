@@ -355,9 +355,9 @@ function buildCalendarDays(monthDate, slotsByDate, reservedSlotsByDate, { workin
     const isInsideBookingWindow =
       (!bookingWindowStart || cursor.endOf('day') >= bookingWindowStart) &&
       (!bookingWindowEnd || cursor.startOf('day') <= bookingWindowEnd)
-    let availabilityState = 'booked'
-    let statusLabel = 'Full'
-    let statusHint = 'All slots taken'
+    let availabilityState = 'unavailable'
+    let statusLabel = 'No slots'
+    let statusHint = 'No slots available'
 
     if (slots.length > 0) {
       availabilityState = 'available'
@@ -590,7 +590,7 @@ function App() {
           ? 'This date is outside the current booking window.'
           : selectedDateReservedSlots.length > 0
             ? 'All appointment slots on this date are already reserved.'
-            : 'This working day is currently fully booked.'
+            : 'No appointment slots are currently available for this date.'
     : 'Select a highlighted date to inspect available appointment slots.'
   const activeMonthLabel = activeMonthDate.toFormat('LLLL yyyy')
   const activeMonthIndex = calendarMonthKeys.indexOf(activeMonthKey)
