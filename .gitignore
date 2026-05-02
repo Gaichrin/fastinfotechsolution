@@ -1,9 +1,0 @@
-node_modules
-dist
-.DS_Store
-.env
-api/.env
-.env.local
-.env.*.local
-data/*.sqlite
-data/*.sqlite-*
