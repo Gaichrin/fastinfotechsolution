@@ -14,18 +14,18 @@ React frontend (GitHub Pages)
 2. Give the user access to the database.
 3. Use PHP 8.1 or newer.
 4. Upload the `api/` folder to the Hostinger backend domain or subdomain.
-   - Example backend origin: `https://api.your-domain.com`
-   - The frontend will call `https://api.your-domain.com/api/availability`.
+   - Current backend base URL: `https://forestgreen-fish-476599.hostingersite.com/FITS/index.php`
+   - The frontend will call `https://forestgreen-fish-476599.hostingersite.com/FITS/index.php/api/availability`.
 5. Create an `.env` file inside the uploaded `api/` folder using `.env.hostinger.example` as the template.
-6. Set `SITE_URL` to the backend origin, without a trailing slash.
+6. Set `SITE_URL` to the backend base URL, without a trailing slash.
 7. Set `FRONTEND_URL` and `CORS_ALLOWED_ORIGINS` to your GitHub Pages URL.
 
 Example backend `.env` values:
 
 ```env
-FRONTEND_URL=https://your-github-user.github.io/FITS
-CORS_ALLOWED_ORIGINS=https://your-github-user.github.io
-SITE_URL=https://api.your-domain.com
+FRONTEND_URL=https://gaichrin.github.io/fastinfotechsolution
+CORS_ALLOWED_ORIGINS=https://gaichrin.github.io
+SITE_URL=https://forestgreen-fish-476599.hostingersite.com/FITS/index.php
 
 APPOINTMENT_DB_HOST=localhost
 APPOINTMENT_DB_PORT=3306
@@ -39,7 +39,7 @@ The backend creates or updates the `appointments` table automatically on first A
 Check the backend after upload:
 
 ```text
-https://api.your-domain.com/api/health
+https://forestgreen-fish-476599.hostingersite.com/FITS/index.php/api/health
 ```
 
 You should see JSON with `ok: true`, `appointmentProvider: "mysql"`, and `emailConfigured`.
@@ -51,13 +51,7 @@ In the GitHub repository, go to **Settings -> Secrets and variables -> Actions**
 Add this repository variable:
 
 ```text
-VITE_API_BASE_URL=https://api.your-domain.com
-```
-
-Until the Hostinger API URL is ready, the workflow falls back to the local XAMPP API URL:
-
-```text
-http://localhost/FITS
+VITE_API_BASE_URL=https://forestgreen-fish-476599.hostingersite.com/FITS/index.php
 ```
 
 Add this repository variable:
@@ -99,7 +93,7 @@ http://localhost/FITS/api/health
 ## 4. Important Notes
 
 - Do not commit `.env`; it is ignored by git.
-- Keep `VITE_API_BASE_URL` as the backend origin only. Do not include `/api`.
-- Keep `SITE_URL` as the backend origin only. Do not include `/api`.
+- Keep `VITE_API_BASE_URL` as the backend base URL only. Do not include `/api`.
+- Keep `SITE_URL` as the backend base URL only. Do not include `/api`.
 - If the browser blocks requests, check `CORS_ALLOWED_ORIGINS` and make sure it matches the GitHub Pages origin exactly.
 - If `/api/health` returns 404 on Hostinger, confirm `api/.htaccess` was uploaded.
