@@ -226,10 +226,16 @@ const inputClass =
   'w-full rounded-md border border-[#cfd7e2] bg-white px-4 py-3 text-base text-[#111827] outline-none transition duration-200 placeholder:text-[#8a94a3] focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/12 sm:text-[15px]'
 const titleFont = { fontFamily: 'Sora, sans-serif' }
 const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
+const appBaseUrl = import.meta.env.BASE_URL || '/'
 
 function apiUrl(path) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
   return `${apiBaseUrl}${normalizedPath}`
+}
+
+function appAssetUrl(path) {
+  const normalizedPath = path.replace(/^\/+/, '')
+  return `${appBaseUrl}${normalizedPath}`
 }
 
 function backendAssetUrl(path) {
@@ -837,7 +843,7 @@ function App() {
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-white">
                 <img
                   className="h-9 w-9 object-contain"
-                  src="/assets/logo-transparent.png"
+                  src={appAssetUrl('/assets/logo-transparent.png')}
                   alt="Fast Infotech Solution logo"
                 />
               </span>
@@ -976,7 +982,7 @@ function App() {
               >
                 <img
                   className="absolute right-[-3rem] top-[-3rem] h-56 w-56 object-contain opacity-10"
-                  src="/assets/logo-transparent.png"
+                  src={appAssetUrl('/assets/logo-transparent.png')}
                   alt=""
                   aria-hidden="true"
                 />
@@ -2014,7 +2020,7 @@ function App() {
               <span className="flex h-10 w-10 items-center justify-center rounded-md border border-[#dde3ea] bg-white">
                 <img
                   className="h-8 w-8 object-contain"
-                  src="/assets/logo-transparent.png"
+                  src={appAssetUrl('/assets/logo-transparent.png')}
                   alt=""
                   aria-hidden="true"
                 />
