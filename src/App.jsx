@@ -85,7 +85,7 @@ const projects = [
     summary:
       'An event ticketing and management system with a mobile app for QR-code ticket authentication and on-site validation.',
     outcome:
-      'Delivered a companion web application that can generate 1,000 to 5,000 encrypted, password-protected QR tickets in bulk.',
+      'Delivered a companion web application that can generate 1 to 50,000 encrypted, password-protected QR tickets in bulk.',
     tags: ['Event Ticketing', 'QR Validation', 'Bulk QR Generator'],
     filters: ['Web Apps', 'Mobile', 'Ticketing'],
   },
@@ -225,7 +225,10 @@ const panelClass = 'rounded-lg border border-[#dde3ea] bg-white shadow-[0_18px_5
 const inputClass =
   'w-full rounded-md border border-[#cfd7e2] bg-white px-4 py-3 text-base text-[#111827] outline-none transition duration-200 placeholder:text-[#8a94a3] focus:border-[#2563eb] focus:ring-4 focus:ring-[#2563eb]/12 sm:text-[15px]'
 const titleFont = { fontFamily: 'Sora, sans-serif' }
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
+const defaultApiBaseUrl = import.meta.env.PROD
+  ? 'https://forestgreen-fish-476599.hostingersite.com/FITS/index.php'
+  : ''
+const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || defaultApiBaseUrl).replace(/\/+$/, '')
 const appBaseUrl = import.meta.env.BASE_URL || '/'
 
 function apiUrl(path) {
